@@ -1,0 +1,222 @@
+{
+    "____comment": "This file was generated with eosio-abigen. DO NOT EDIT ",
+    "version": "eosio::abi/1.1",
+    "types": [],
+    "structs": [
+        {
+            "name": "Choice",
+            "base": "ChoiceBase",
+            "fields": [
+                {
+                    "name": "votes",
+                    "type": "uint64"
+                }
+            ]
+        },
+        {
+            "name": "ChoiceBase",
+            "base": "",
+            "fields": [
+                {
+                    "name": "value",
+                    "type": "string"
+                },
+                {
+                    "name": "subtitle",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Poll",
+            "base": "",
+            "fields": [
+                {
+                    "name": "index",
+                    "type": "uint64"
+                },
+                {
+                    "name": "creator",
+                    "type": "name"
+                },
+                {
+                    "name": "choices",
+                    "type": "Choice[]"
+                },
+                {
+                    "name": "starts_at",
+                    "type": "uint64"
+                },
+                {
+                    "name": "ends_at",
+                    "type": "uint64"
+                },
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Vote",
+            "base": "",
+            "fields": [
+                {
+                    "name": "index",
+                    "type": "uint64"
+                },
+                {
+                    "name": "choice",
+                    "type": "string"
+                },
+                {
+                    "name": "key",
+                    "type": "public_key"
+                },
+                {
+                    "name": "txid",
+                    "type": "checksum256"
+                }
+            ]
+        },
+        {
+            "name": "createpoll",
+            "base": "",
+            "fields": [
+                {
+                    "name": "account",
+                    "type": "name"
+                },
+                {
+                    "name": "choices",
+                    "type": "ChoiceBase[]"
+                },
+                {
+                    "name": "starts_at",
+                    "type": "uint64"
+                },
+                {
+                    "name": "ends_at",
+                    "type": "uint64"
+                },
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "deletepoll",
+            "base": "",
+            "fields": [
+                {
+                    "name": "creator",
+                    "type": "name"
+                },
+                {
+                    "name": "poll_id",
+                    "type": "uint64"
+                }
+            ]
+        },
+        {
+            "name": "modifyend",
+            "base": "",
+            "fields": [
+                {
+                    "name": "creator",
+                    "type": "name"
+                },
+                {
+                    "name": "poll_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "ends_at",
+                    "type": "uint64"
+                }
+            ]
+        },
+        {
+            "name": "resetpool",
+            "base": "",
+            "fields": [
+                {
+                    "name": "poll_id",
+                    "type": "uint64"
+                }
+            ]
+        },
+        {
+            "name": "vote",
+            "base": "",
+            "fields": [
+                {
+                    "name": "relay",
+                    "type": "name"
+                },
+                {
+                    "name": "poll_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "choice",
+                    "type": "string"
+                },
+                {
+                    "name": "key",
+                    "type": "public_key"
+                },
+                {
+                    "name": "signature",
+                    "type": "signature"
+                }
+            ]
+        }
+    ],
+    "actions": [
+        {
+            "name": "createpoll",
+            "type": "createpoll",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "deletepoll",
+            "type": "deletepoll",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "modifyend",
+            "type": "modifyend",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "resetpool",
+            "type": "resetpool",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "vote",
+            "type": "vote",
+            "ricardian_contract": ""
+        }
+    ],
+    "tables": [
+        {
+            "name": "polls",
+            "type": "Poll",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        },
+        {
+            "name": "votes",
+            "type": "Vote",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        }
+    ],
+    "ricardian_clauses": [],
+    "variants": []
+}
